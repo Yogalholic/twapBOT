@@ -23,9 +23,6 @@ user = User(api_key, api_secret, api_passphrase)
 # or connect to Sandbox
 #user = User(api_key, api_secret, api_passphrase, is_sandbox=True)
 
-def returnAccountAvailable(token):
-    account = user.get_account_list(token, "trade")
-    return account[0]['available']
 def returnPrice(token):
     account = market.get_ticker(token)
     return account['price']
@@ -38,7 +35,6 @@ client = Trade(api_key, api_secret, api_passphrase)
 
 
 while(1):
-     available = returnAccountAvailable('USDT')
      debut = time.time()
      bid = returnBid('BTC-USDT')
      try:
